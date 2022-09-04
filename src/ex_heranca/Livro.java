@@ -5,73 +5,56 @@ import java.time.format.DateTimeFormatter;
 import java.util.Scanner;
 
 public class Livro {
-  private String titulo;
-  private String editora;
-  private LocalDate dtLancamente;
+    private String titulo;
+    private String editora;
+    private LocalDate dataLancamento;
 
-  public Livro(String titulo) {
-    this.titulo = titulo;
-  }
-
-  public String getTitulo() {
-    return this.titulo;
-  }
-
-  public void setTitulo(String titulo) {
-    this.titulo = titulo;
-  }
-
-  public String getEditora() {
-    return this.editora;
-  }
-
-  public void setEditora(String editora) {
-    this.editora = editora;
-  }
-
-  public LocalDate getDtLancamente() {
-    return this.dtLancamente;
-  }
-
-  public void setDtLancamente(LocalDate dtLancamente) {
-    this.dtLancamente = dtLancamente;
-  }
-
-  @Override
-  public String toString() {
-    return (
-      "Título\t" +
-      this.titulo +
-      "\nEditora\t" +
-      this.editora +
-      "\nData Lanc:\t" +
-      this.dtLancamente
-      //DateTimeFormatter
-    );
-  }
-
-  public static Livro cadastrarLivro() {
-    Scanner in = new Scanner(System.in);
-    System.out.print("Digite o título do livro: ");
-    String titulo = in.next();
-    if (titulo.length() < 2) {
-      System.out.println("O título deve ter ao menos 2 caracteres!");
-      return null;
+    public String toString() {
+        return ("Titulo: " + this.titulo +
+                "\nEditora: " + this.editora +
+                "\nData de lancamento: " + this.dataLancamento);
     }
-    Livro novoLivro = new Livro(titulo);
-    System.out.print("Digite a editora do livro: ");
-    novoLivro.setEditora(in.next());
 
-    System.out.print("Digite a data de lançamento (dd/mm/yyyy): ");
-    String data = in.next();
+    public Livro() {
+        Scanner inString = new Scanner(System.in);
 
-    DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        System.out.print("Digite o titulo: ");
+        this.titulo = inString.nextLine();
 
-    LocalDate novaData = LocalDate.parse(data, formatter);
-    
-    System.out.println("Nova data = " + novaData.format(formatter));
+        System.out.print("Digite a editora: ");
+        this.editora = inString.nextLine();
 
-    novoLivro.setDtLancamente(novaData);
-    return novoLivro;
-  }
+        System.out.print("Digite a data de lancamento (dd/mm/yyyy): ");
+        String data = inString.nextLine();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate novaData = LocalDate.parse(data, formatter);
+        this.dataLancamento = novaData;
+    }
+
+    public Livro(String string) {
+    }
+
+    public String getTitulo() {
+        return this.titulo;
+    }
+
+    public void setTitulo(String titulo) {
+        this.titulo = titulo;
+    }
+
+    public String getEditora() {
+        return this.editora;
+    }
+
+    public void setEditora(String editora) {
+        this.editora = editora;
+    }
+
+    public LocalDate getDataLancamento() {
+        return this.dataLancamento;
+    }
+
+    public void setDataLancamento(LocalDate dataLancamento) {
+        this.dataLancamento = dataLancamento;
+    }
 }

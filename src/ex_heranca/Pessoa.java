@@ -1,44 +1,61 @@
 package ex_heranca;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
+import java.util.Scanner;
 
 public abstract class Pessoa {
-  protected String nome;
-  protected LocalDate dtNascimento;
-  protected String endereco;
+    protected String nome;
+    protected LocalDate dataNascimento;
+    protected String endereco;
 
-  // esse construtor só existe para poder gerar instancia em estudante
-  // e funcionario
-  protected Pessoa() {}
+    public String getNome() {
+        return this.nome;
+    }
 
-  // construtor obrigatório para gerar instancia de Autor
-  protected Pessoa(String _nome, LocalDate _dtNascimento, String _endereco) {
-    this.nome = _nome;
-    this.endereco = _endereco;
-    this.dtNascimento = _dtNascimento;
-  }
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
 
-  public String getNome() {
-    return this.nome;
-  }
+    public LocalDate getDataNascimento() {
+        return this.dataNascimento;
+    }
 
-  public void setNome(String nome) {
-    this.nome = nome;
-  }
+    public void setDataNascimento(LocalDate dataNascimento) {
+        this.dataNascimento = dataNascimento;
+    }
 
-  public LocalDate getDtNascimento() {
-    return this.dtNascimento;
-  }
+    public String getEndereco() {
+        return this.endereco;
+    }
 
-  public void setDtNascimento(LocalDate dtNascimento) {
-    this.dtNascimento = dtNascimento;
-  }
+    public void setEndereco(String endereco) {
+        this.endereco = endereco;
+    }
 
-  public String getEndereco() {
-    return this.endereco;
-  }
+    // Outros métodos
 
-  public void setEndereco(String endereco) {
-    this.endereco = endereco;
-  }
+    public String toString() {
+        return ("Nome: " + this.nome +
+                "\nData de nascimento: " + this.dataNascimento +
+                "\nEndereco: " + this.endereco);
+    }
+
+    public Pessoa() {
+        Scanner in = new Scanner(System.in);
+
+        System.out.print("Digite o nome: ");
+        String nome = in.nextLine();
+        this.nome = nome;
+
+        System.out.print("Digite o endereco: ");
+        String endereco = in.nextLine();
+        this.endereco = endereco;
+
+        System.out.print("Digite a data de nascimento (dd/mm/yyyy): ");
+        String dataNascimento = in.next();
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("dd/MM/yyyy");
+        LocalDate novaDataNascimento = LocalDate.parse(dataNascimento, formatter);
+        this.dataNascimento = novaDataNascimento;
+    }
 }

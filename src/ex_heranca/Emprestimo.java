@@ -1,51 +1,51 @@
 package ex_heranca;
-
 import java.time.LocalDate;
 
 public class Emprestimo {
-  private Estudante estudante;
-  private Funcionario funcionario;
-  private Livro livro;
-  private LocalDate dtEmprestimo;
-  private LocalDate dtDevolucao;
+    private Estudante estudante;
+    private Funcionario servidor;
+    private Livro livro;
+    private LocalDate dataEmprestimo;
+    private LocalDate dataDevolucao;
 
-  public Estudante getEstudante() {
-    return this.estudante;
-  }
+    public Estudante getEstudante() {
+        return this.estudante;
+    }
 
-  public void setEstudante(Estudante estudante) {
-    this.estudante = estudante;
-  }
+    public void setEstudante(Estudante estudante) {
+        this.estudante = estudante;
+    }
 
-  public Funcionario getFuncionario() {
-    return this.funcionario;
-  }
+    public Funcionario getServidor() {
+        return this.servidor;
+    }
 
-  public void setFuncionario(Funcionario funcionario) {
-    this.funcionario = funcionario;
-  }
+    public void setServidor(Funcionario servidor) {
+        this.servidor = servidor;
+    }
 
-  public Livro getLivro() {
-    return this.livro;
-  }
+    public Livro getLivro() {
+        return this.livro;
+    }
 
-  public void setLivro(Livro livro) {
-    this.livro = livro;
-  }
+    public void setLivro(Livro livro) {
+        this.livro = livro;
+    }
 
-  public LocalDate getDtEmprestimo() {
-    return this.dtEmprestimo;
-  }
+    public LocalDate getDataEmprestimo() {
+        return this.dataEmprestimo;
+    }
 
-  public void setDtEmprestimo(LocalDate dtEmprestimo) {
-    this.dtEmprestimo = dtEmprestimo;
-  }
+    public void setDataEmprestimo(LocalDate dataEmprestimo) {
+        this.dataEmprestimo = dataEmprestimo;
+    }
 
-  public LocalDate getDtDevolucao() {
-    return this.dtDevolucao;
-  }
+    public LocalDate getDataDevolucao() {
+        return this.dataDevolucao;
+    }
 
-  public void setDtDevolucao(LocalDate dtDevolucao) {
-    this.dtDevolucao = dtDevolucao;
-  }
+    public void setDataDevolucao(LocalDate dataDevolucao) {
+        this.dataDevolucao = dataDevolucao;
+    }
+
 }

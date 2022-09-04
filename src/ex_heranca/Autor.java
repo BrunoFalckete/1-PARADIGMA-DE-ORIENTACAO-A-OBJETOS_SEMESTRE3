@@ -1,36 +1,44 @@
 package ex_heranca;
 
 import java.time.LocalDate;
+import java.util.Scanner;
 
 public class Autor extends Pessoa {
-  private String formacao;
-  private int qtoLivros; // nunca armazenar isso
+    private String formacao;
+    private int quantidadeLivros;
 
-  public Autor(
-    String nome,
-    LocalDate dtNascimento,
-    String endereco,
-    String formacao,
-    int qtoLivros
-  ) {
-    super(nome, dtNascimento, endereco);
-    this.formacao = formacao;
-    this.qtoLivros = qtoLivros;
-  }
+    public String toString() {
+        return (super.toString() +
+                "\nFormacao do autor: " + this.formacao +
+                "\nQuantidade de livros publicados: " + this.quantidadeLivros);
+    }
 
-  public String getFormacao() {
-    return this.formacao;
-  }
+    public Autor() {
+        super();
 
-  public void setFormacao(String formacao) {
-    this.formacao = formacao;
-  }
+        Scanner inString = new Scanner(System.in);
+        Scanner inInt = new Scanner(System.in);
 
-  public int getQtoLivros() {
-    return this.qtoLivros;
-  }
+        System.out.print("Digite a formacao do autor: ");
+        this.formacao = inString.nextLine();
 
-  public void setQtoLivros(int qtoLivros) {
-    this.qtoLivros = qtoLivros;
-  }
+        System.out.print("Digite a quantidade de livros escritos pelo autor: ");
+        this.quantidadeLivros = inInt.nextInt();
+    }
+
+    public String getFormacao() {
+        return this.formacao;
+    }
+
+    public void setFormacao(String formacao) {
+        this.formacao = formacao;
+    }
+
+    public int getQuantidadeLivros() {
+        return this.quantidadeLivros;
+    }
+
+    public void setQuantidadeLivros(int quantidadeLivros) {
+        this.quantidadeLivros = quantidadeLivros;
+    }
 }
